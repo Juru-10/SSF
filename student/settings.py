@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'step',
     'bootstrap3',
     'registration',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
