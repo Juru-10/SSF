@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class NestepConfig(AppConfig):
-    name = 'nestep'
+class StepConfig(AppConfig):
+    name = 'step'
