@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/home/wecode/SSF/virtual/bin/python
+=======
+#!/home/wecode/Desktop/SSF/virtual/bin/python
+>>>>>>> 198a02bf2d041237c23e942847c8da7969bfc654
 # -*- coding: utf-8 -*-
 import re
 import sys

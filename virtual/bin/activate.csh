@@ -8,7 +8,11 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/home/wecode/SSF/virtual"
+<<<<<<< HEAD
+setenv VIRTUAL_ENV "/home/florence/Documents/SSF/virtual"
+=======
+setenv VIRTUAL_ENV "/home/wecode/Desktop/SSF/virtual"
+>>>>>>> 7b404371aa5ddc395d260a0c31b9cd56f0366234
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
