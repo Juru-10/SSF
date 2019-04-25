@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block content %}  
+<div class="container" style= "font-family: 'Cormorant Upright', serif;">
+    <div class="jumbotron text-center" style= "min-height: 300vh;background-color:rgb(153, 51, 51); color:darkcyan; font-family: monospace;">
+        <div class="well" style="color:black;">
+            <h1> Classes</h1>
+        </div>
+            <div class="row">
+              
+     
+    {% for class in classes %}
+   
+    <!-- <div class="container">
+        <div class="jubmutron"> -->
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-4">
+
+                <div style= "font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51); ">
+                <P>Level 1</P>
+                </div>
+                <div style= "font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51); ">
+                <P>Level 2</P>
+                </div>
+                <div style= "font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51); ">
+                <P>Level 3</P>
+                </div>
+                <div style= "font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51); ">
+                <P>Level 4</P>
+                </div>
+                <div style= "font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51); ">
+                <P>Level 5</P>
+                </div>
+                <div style= "font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51); ">
+                <P>Level 6</P>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+        <!-- <div class="uk-card uk-card-default uk-card-body uk-width-3-2@m" style= "height: 500px; width: 700px;">
+            <img src="{{photo.photo.url}}" class="img-responsive" width="700px" height="700px">
+            <h3 class="uk-card-title">{{photo.name|upper}}</h3>
+            <hr class="uk-divider-icon">
+        <a href="{% url 'singlePhoto' photo.id %}"> <p>More Details</p>
+                -->
+        </div>
+        </a>
+        <!-- <div class="modal-footer">
+            <input class="form-control input-lg" type="text"  value="http://127.0.0.1:8000{{photo.photo.url}}" id="{{photo.id}}-url" >
+                  <button class="btn btn-outline-info" onclick="copyUrl('{{photo.id}}-url')">Copy link</button>
+    
+          </div> -->
+        <!-- <script type="text/javascript">
+            function copyUrl(element) {
+            var myVar = document.getElementById(element);
+            myVar.select();
+            document.execCommand('copy');
+            alert("Photo's link copied: " + myVar.value);  
+            }
+        </script>
+     -->
+        
+    </div>
+       
+    <!-- {% endfor %} -->
+
+<!-- </section> -->
+
+{% endblock %}
