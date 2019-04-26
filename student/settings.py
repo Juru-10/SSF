@@ -69,16 +69,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'rest_framework',
     'rest_framework.authtoken',
-=======
-    'step',
-    'bootstrap3',
-    'registration',
-    'tinymce',
-    'rest_framework',
->>>>>>> 198a02bf2d041237c23e942847c8da7969bfc654
 ]
 
 MIDDLEWARE = [
@@ -114,22 +106,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'student.wsgi.application'
 
 
-<<<<<<< HEAD
-=======
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ssf',
-        'USER': 'wecode',
-    'PASSWORD':'kazubajoanna',
-    }
-}
-
-
->>>>>>> 198a02bf2d041237c23e942847c8da7969bfc654
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -168,15 +144,11 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 
-=======
->>>>>>> 198a02bf2d041237c23e942847c8da7969bfc654
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-<<<<<<< HEAD
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
@@ -192,7 +164,3 @@ REST_FRAMEWORK = {
 }
 
 AUTH_PROFILE_MODULE='step.School'
-=======
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
->>>>>>> 198a02bf2d041237c23e942847c8da7969bfc654
