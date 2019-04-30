@@ -15,17 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-<<<<<<< HEAD
-from django.contrib.auth import views
-from rest_framework.authtoken.views import obtain_auth_token
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'',include('step.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
-    url(r'^api-token-auth/', obtain_auth_token),
-=======
 from django.contrib.auth import views 
 
 urlpatterns = [
@@ -33,6 +22,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^tinymce/', include('tinymce.urls')),
->>>>>>> 198a02bf2d041237c23e942847c8da7969bfc654
 ]
 

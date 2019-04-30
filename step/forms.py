@@ -11,6 +11,6 @@ class StudentForm(forms.ModelForm):
 class GuideForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school]
+        exclude = ['school']
 
 
