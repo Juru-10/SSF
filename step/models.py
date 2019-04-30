@@ -1,8 +1,7 @@
 from django.db import models
 
 import datetime as dt
-from django.contrib.auth.models import User
-# from tinymce.models import HTMLField
+from django.contrib.auth.models import User, AbstractUser
 from django.core.validators import MaxValueValidator,MinValueValidator
 
 from django.db.models.signals import post_save
@@ -12,6 +11,8 @@ from django.db.models import Q
 class School(models.Model):
     name = models.CharField(max_length=30)
     location = models.CharField(max_length=30)
+    username = models.CharField(max_length=30,null=True)
+    password = models.CharField(max_length=30,null=True)
 
     def save_school(self):
         self.save()
@@ -33,8 +34,8 @@ class Guide(models.Model):
     school = models.ForeignKey(School,on_delete=models.CASCADE,null=True)
     fname = models.CharField(max_length=30)
     lname = models.CharField(max_length=30)
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=30)
+    username = models.CharField(max_length=30,null=True)
+    password = models.CharField(max_length=30,null=True)
 
     def save_guide(self):
         self.save()
@@ -47,7 +48,7 @@ class Student(models.Model):
     fname = models.CharField(max_length=30)
     lname = models.CharField(max_length=30)
     email = models.EmailField()
-    ID = models.CharField(max_length=30)
+    ID = models.CharField(max_length=30,null=True)
 
     def save_student(self):
         self.save()
@@ -62,3 +63,26 @@ class Student(models.Model):
         Q(lname__icontains=lname)
         )
         return student
+
+class Role(models.Model):
+    '''
+    '''
+    STUDENT = 1
+    GUIDE = 2
+    SCHOOL = 3
+    ADMIN = 4
+    ROLE_CHOICES = (
+        (STUDENT, 'student'),
+        (GUIDE, 'guide'),
+        (SCHOOL, 'school'),
+        (ADMIN, 'admin'),
+    )
+
+    id = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, primary_key=True)
+
+    def __str__(self):
+        return self.get_id_display()
+
+
+class User(AbstractUser):
+    roles = models.ManyToManyField(Role)
