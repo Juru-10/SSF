@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import Profile,Project
+from .models import Student,Guide
 
-class ProfileSerializer(serializers.ModelSerializer):
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Profile
-        fields = ('id','user','prof_pic','bio','contact')
+        model = Student
+        fields = ('level' ,'fname', 'lname', 'email', 'ID')
 
-class ProjectSerializer(serializers.ModelSerializer):
+class GuideSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Project
-        fields = ('id','profile','title','image','description','link')
+        model = Guide
+        fields = ('school', 'fname', 'lname', 'username', 'password')

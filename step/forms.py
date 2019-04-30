@@ -1,5 +1,5 @@
 from django import forms
-from .models import Student, Guide
+from .models import Student, Guide, Level
 
 
 
@@ -11,6 +11,9 @@ class StudentForm(forms.ModelForm):
 class GuideForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school]
+        exclude = ['school']
 
-
+class LevelForm(forms.ModelForm):
+    class Meta:
+        model = Level
+        exclude = ['school']
