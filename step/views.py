@@ -4,7 +4,7 @@ from django.http  import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt
 from django.contrib.auth.decorators import login_required
 
-from .forms import StudentForm, GuideForm, LevelForm
+from .forms import AddStudentForm, AddGuideForm, AddLevelForm
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -13,12 +13,71 @@ from .serializer import StudentSerializer,GuideSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 
-# @login_required(login_url='/accounts/login/')
+@login_required(login_url='/accounts/login/')
 def admin(request):
     return render(request)
 
+@login_required(login_url='/accounts/login/')
 def school(request):
-    return render(request,'school.html')
+    levels=Level.objects.all()
+    guides=Guide.objects.all()
+    students=Student.objects.all()
+    return render(request,'school.html',{"levels":levels,"guides":guides,"students":"students"})
+
+@login_required(login_url='/accounts/login/')
+def add_student(request):
+    # current_user = request.user
+    # user = User.objects.filter().first()
+    if request.method == 'POST':
+        form = AddStudentForm(request.POST,request.FILES)
+        print(form.errors.as_text())
+        if form.is_valid():
+            student = form.save(commit=False)
+            # student.user = current_user
+            # profile=Profile.objects.update()
+            student.save()
+        return redirect('school')
+    else:
+        form = AddStudentForm()
+    return render(request,'registration/add_student.html',{"form": form,"id":id})
+
+@login_required(login_url='/accounts/login/')
+def add_guide(request):
+    # current_user = request.user
+    # user = User.objects.filter().first()
+    if request.method == 'POST':
+        form = AddGuideForm(request.POST,request.FILES)
+        print(form.errors.as_text())
+        if form.is_valid():
+            guide = form.save(commit=False)
+            # profile.user = current_user
+            # profile=Profile.objects.update()
+            guide.save()
+        return redirect('school')
+    else:
+        form = AddGuideForm()
+    return render(request,'registration/add_guide.html',{"form": form,"id":id})
+
+@login_required(login_url='/accounts/login/')
+def add_level(request):
+    # current_user = request.user
+    # user = User.objects.filter().first()
+    if request.method == 'POST':
+        form = AddLevelForm(request.POST,request.FILES)
+        print(form.errors.as_text())
+        if form.is_valid():
+            level = form.save(commit=False)
+            # profile.user = current_user
+            # profile=Profile.objects.update()
+            level.save()
+        return redirect('school')
+    else:
+        form = AddLevelForm()
+    return render(request,'registration/add_level.html',{"form": form,"id":id})
+
+
+
+
 
 class StudentList(APIView):
     def get(self, request, format=None):
