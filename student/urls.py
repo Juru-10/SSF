@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('step.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    # url(r'accounts/signup', school.SignUpView.as_view(), name='signup'),
+    # url(r'accounts/signup/student/', students.StudentSignUpView.as_view(), name='student_signup'),
+    # url(r'accounts/signup/guide/', guides.GuideSignUpView.as_view(), name='guide_signup'),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^api-token-auth/', obtain_auth_token),
 ]
