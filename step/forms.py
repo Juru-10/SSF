@@ -15,7 +15,7 @@ class GuideLoginForm(forms.ModelForm):
 class AddStudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        exclude = ['level']
+        exclude = []
 
 
 class AddGuideForm(forms.ModelForm):
