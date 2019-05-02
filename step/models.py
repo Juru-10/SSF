@@ -64,6 +64,21 @@ class Student(models.Model):
         )
         return student
 
+class Marks(models.Model):
+    student = models.ForeignKey(Student,on_delete=models.CASCADE,null=True)
+    subject = models.CharField(max_length=30)
+    points = models.CharField(max_length=30)
+    comment = models.CharField(max_length=30)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    guide = models.ForeignKey(Guide,on_delete=models.CASCADE,null=True)
+
+class Discipline(models.Model):
+    student = models.ForeignKey(Student,on_delete=models.CASCADE,null=True)
+    case = models.CharField(max_length=30)
+    comment = models.CharField(max_length=30)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    guide = models.ForeignKey(Guide,on_delete=models.CASCADE,null=True)
+
 class Role(models.Model):
     '''
     '''
