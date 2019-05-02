@@ -17,7 +17,7 @@ from .permissions import IsAdminOrReadOnly
 def admin(request):
     return render(request)
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def school(request):
     levels=Level.objects.all()
     guides=Guide.objects.all()
@@ -123,6 +123,31 @@ def student(request,ID):
     discipline = Discipline.objects.all()
     return render(request,'student.html')
 
+
+def student_login():
+    form = StudentLoginForm()
+    if form.validate_on_submit():
+        student = Student.query.filter_by(email = form.email.data).first()
+        if student is not None and student.verify_password(form.password.data):
+            return redirect('registration/parent_login.html')
+
+        flash('Invalid username or password')
+
+    title = 'Login as Student'
+    return render_template('registration/parent_login.html', title = title, StudentLoginForm= form)
+
+
+def guide_login():
+    form = GuideLoginForm()
+    if form.validate_on_submit():
+        guide = Guide.query.filter_by(email = form.email.data).first()
+        if student is not None and guide.verify_password(form.password.data):
+            return redirect('registration/guide_login.html')
+
+        flash('Invalid username or password')
+
+    title = 'Login as Guide'
+    return render_template('registration/guide_login.html', title = title, GuideLoginForm= form)
 
 class StudentList(APIView):
     def get(self, request, format=None):
