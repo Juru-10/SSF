@@ -25,6 +25,11 @@ def school(request):
     return render(request,'school.html',{"levels":levels,"guides":guides,"students":"students"})
 
 @login_required(login_url='/accounts/login/')
+def guides(request):
+    guides=Guide.objects.all()
+    return render(request,'school.html',{"levels":levels,"guides":guides,"students":"students"})    
+
+@login_required(login_url='/accounts/login/')
 def levels(request):
     levels=Level.objects.all()
     students=Student.objects.filter(level__name__icontains=Student.level)
