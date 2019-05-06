@@ -19,7 +19,9 @@ def admin(request):
 
 # @login_required(login_url='/accounts/login/')
 def school(request):
-    return render(request,'school.html')
+    current_user = request.user
+    guide = current_user
+    return render(request,'school.html',{"guide":guide})
 
 @login_required(login_url='/accounts/login/')
 def guides(request):
