@@ -1,5 +1,6 @@
-{% load bootstrap3 %} {% load static%}
-
+{% load bootstrap3 %}
+{% load static%}
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -7,10 +8,12 @@
   <title> Student Step Follower - {{title}}</title>
   {% else %}
   <title> Student Step Follower </title>
-  {% endif %} {% block styles %} {% bootstrap_css %}
+  <link rel="shortcut icon" href="media/projectpic/logo.png" type="image/x-icon">
+  {% endif %}
+  {% block styles %}
+  {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Concert+One|Didact+Gothic|Dosis|K2D|Vidaloka" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   {% endblock %}
 
@@ -18,10 +21,15 @@
 </head>
 
 <body>
-  {% include "navbar.html" %} {% block content %}
-  <h1 class='text-center'> Images for Today </h1> {%endblock%} 
+  {% include "navbar.html" %}
+  {% block content %}
+  <h1 class='text-center'></h1>
+  {%endblock%}
+  {% block scripts %}
   {% bootstrap_javascript %}
 
+
+  {% endblock %}
 
 </body>
 

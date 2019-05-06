@@ -1,16 +1,20 @@
 from django import forms
-from .models import Student, Guide, Level, Marks, Discipline
+from .models import School, Student, Guide, Level, Marks, Discipline
 
+class SchoolLoginForm(forms.ModelForm):
+    class Meta:
+        model = School
+        exclude = ['name','location']
 
 class StudentLoginForm(forms.ModelForm):
     class Meta:
         model = Student
-        exclude = ['level']
+        exclude = ['level','fname','lname']
 
 class GuideLoginForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school']
+        exclude = ['school','fname','lname']
 
 class AddStudentForm(forms.ModelForm):
     class Meta:
@@ -21,7 +25,7 @@ class AddStudentForm(forms.ModelForm):
 class AddGuideForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school']
+        exclude = ['school','guide']
 
 class AddLevelForm(forms.ModelForm):
     class Meta:

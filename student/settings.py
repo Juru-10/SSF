@@ -161,6 +161,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-
-AUTH_PROFILE_MODULE='step.School'
-AUTH_USER_MODEL = 'step.User'
+LOGIN_REDIRECT_URL="/school/"
+# AUTH_PROFILE_MODULE='step.School'
+# AUTH_USER_MODEL = 'step.User'

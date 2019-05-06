@@ -1,26 +1,45 @@
-{% extends 'base.html' %} {% block content %}
-<div class="container" style= "font-family: 'Cormorant Upright', serif;">
-  <div class="jumbotron text-center" style= "background-color:rgb(153, 51, 51); color:darkcyan; font-family: monospace;">
-    <div class="well" style="color:black;">
-      <h1> Classes</h1>
-    </div>
-    <div class="row">
-      {%for level in levels%}
-      <div class="">
-        <button class="well" data-toggle="collapse" data-target="#demo" style= "float:left;font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51);">
-          <p>{{level.name}}</p>
-        </button>
-        <div id="demo" class="collapse">
-          <p>List of Students in this Class</p>
-        </div>
-        <button data-toggle="collapse" data-target="#demo">Collapsible</button>
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {{block.super}}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-        <div id="demo" class="collapse">
-          Lorem ipsum dolor text....
+    <div class="container" style= "font-family: 'Cormorant Upright', serif;">
+      <div class="jumbotron text-center" style= "background-color:rgb(153, 51, 51); color:darkcyan; font-family: monospace;">
+        <div class="well" style="color:black;">
+          <h1> Classes</h1>
+        </div>
+        <div class="row">
+          <div class="w3-container">
+            {%for level in levels%}
+            <div class="well" style= "margin:17px;float:left;font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51);">
+            <button onclick="document.getElementById('#{{student.level.id}}').style.display='block'" class="w3-button w3-black">{{level.name}}</button>
+            </div>
+            {%endfor%}
+            <div id="#{{student.level.id}}" class="w3-modal">
+              <div class="w3-modal-content">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('#{{student.level.id}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                  {%for student in students%}
+                  <p>{{student.fname}} {{student.lname}} </p>
+                  <a class="btn btn-primary"href="/add_discipline/{{id_guide}}/{{student.id}}">add discipline</a>
+                  <a class="btn btn-primary"href="/add_marks/{{id_guide}}/{{student.id}}">add marks</a>
+                  {%endfor%}
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
-      {%endfor%}
     </div>
-  </div>
-</div>
-{% endblock %}
+
+    {% endblock %}
+  </body>
+</html>

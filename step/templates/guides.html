@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container" style= "font-family: 'Cormorant Upright', serif;">
+  <div class="jumbotron text-center" style= "background-color:rgb(153, 51, 51); color:darkcyan; font-family: monospace;">
+    <div class="well" style="color:black;">
+      <h1> Guides</h1>
+    </div>
+    <div class="row">
+      {%for guide in guides%}
+      <div class="">
+        <button class="well" data-toggle="collapse" data-target="#demo" style= "float:left;font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51);">
+          <p>{{guide.fname}} {{guide.lname}}</p>
+        </button>
+        <div id="demo" class="collapse">
+          <p>List of Guides</p>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</div>
+{% endblock %}
