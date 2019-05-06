@@ -1,8 +1,13 @@
-# Awwards_like App
+# Student Step Follower App
 
-#### The App that helps the User to sign in,upload projects and view other users posted projects and rate/review them, ...  22th,March,2019
+#### This is a communication App that will help parents to get regular updates of their children’s education. The schools will use less time giving regular reports on the students while excluding the use of papers to print this information, the parents will have the updates on their children at the tap of a button which is more convenient.
 
-#### By **Assumpta Uwanyirijuru**
+
+#### By
+** Assumpta Uwanyirijuru **
+** Jeanne d'Arc NYIRAMWIZA **
+** Florence MBABAZI **
+** Naima NIYIGENA **
 
 ## Description
 This awwwards_like App will help:
@@ -12,14 +17,14 @@ This awwwards_like App will help:
 
 * Go to you machine terminal
 * Install Python3.6 and its third party *django* modules
-* Write 'git clone https://github.com/Juru-10/awwards.git'
+* Write 'git clone https://github.com/Juru-10/SSF.git'
 OR
 * Go to https://github.com
 * Search for Juru-10
 * Go to Juru-10 repositories
-* Get the repository called *awwards*
+* Get the repository called *SSF*
 OR
-* Go to https://github.com/Juru-10/awwards.git
+* Go to https://github.com/Juru-10/SSF.git
 OR
 * Install the Heroku CLI
 * Download and install the Heroku CLI.
@@ -28,7 +33,7 @@ OR
 
 * $ heroku login
 * Clone the repository
-* Use Git to clone awwards1010's source code to your local machine.
+* Use Git to clone SSF's source code to your local machine.
 
 * $ heroku git:clone -a awwards1010
 * $ cd awwards1010
@@ -44,30 +49,21 @@ It is still in Development and that will be soon resolved.
 
 ## Behavior Driven Development (BDD).
 
-### Behavior
+## Specifications
 
-**Our program should handle:**
-1. to Sign in to the app to start using.
-2. to View posted projects and their details
-3. to Post a project to be rated/reviewed.
-4. to Rate/review other users' projects.
-5. to Search for projects
-6. to View the own profile page.
-
-### Input Example
-
-**When it receives:**
-1. the project name in search button,
-
-### Output Example
-
-**It should return:**
-1. the project and its details.
+| Behavior        | Input           | Outcome  |
+| ------------- |:-------------:| -----:|
+| Superuser is able to add different schools | N/A | Display all schools added|
+| School admin is able to add the school information | N/A | Display school information |
+| School admin is able to add the guide | N/A| Display the list of guide |
+| School admin is able to add the guide | N/A | Display the the list of students |
+| The guide  is able to add the student updates that the parent will see| N/A | Display each student updates(discipline and marks) |
+| Parent is able to login to see his child updates | N/A | Parent is able to get updates of his child information |
 
 ## Technologies Used
 
 This App is made with:
-* *postgresql*
+* *postgreSQL*
 * *SQLAlchemy*
 * *python3.6*
 * *Django*
@@ -76,7 +72,7 @@ This App is made with:
 
 ## Support and contact details
 
-If you meet any issue, have questions, ideas or concerns;please contact me on
+If you meet any issue, have questions, ideas or concerns;please contact us on
 *jurassu10@gmail.com* and any contribution to the code is welcomed and will be much appreciated.
 
 ### License & Copyright
@@ -90,3 +86,4 @@ If you meet any issue, have questions, ideas or concerns;please contact me on
 * *Moringa School Project/WeCode Programming*
 * *Technical Mentors*
 * *Fellow Students*
+* *This project collaborators*
