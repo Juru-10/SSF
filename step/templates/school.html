@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
 {% block content %}
-<header style="background:rgba(0,0,255,0.3);height:60px;font-size:30px;">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .container {
+        background-image: url("https://cdn.pixabay.com/photo/2012/12/13/17/54/traces-69808__340.jpg");
+        background-repeat: repeat;
+        /* background-size: cover */
+      }
+    </style>
+</head>
+<header style="background:rgba(105, 154, 173, 0.3);height:150px;font-size:50px;">
   <p class="text-center">School Admin Dashboard</p>
 </header>
 <div class="container">
@@ -9,14 +22,15 @@
 
     <div class="panel-body">
       <div class="panel panel-default">
-        <div class="col-md-8">
-          <h3><a style="margin-right:20.1vw;" href="">Guides</a>  <a style="width:200px;" class="btn btn-primary btn-lg" href="{%url 'add_guide' %}">Add Guide</a></h3><hr>
-          <h3><a style="margin-right:20.5vw;" href="">Levels</a>  <a style="width:200px;" class="btn btn-primary btn-lg" href="{%url 'add_level' %}">Add Class/ Level</a></h3><hr>
-          <h3><a style="margin-right:19.1vw;" href="">Students</a>  <a style="width:200px;" class="btn btn-primary btn-lg" href="{%url 'add_student' %}">Add Student</a></h3>
+        <div class="col-md-12">
+          <h3><a style="margin-right:20.1vw;" href=""><strong>Guides</strong></a>  <a style="width:200px;" class="btn btn-primary btn-lg" href="{%url 'add_guide' %}">Add Guide</a></h3><hr>
+          <h3><a style="margin-right:20.5vw;" href=""><strong>Levels</strong></a>  <a style="width:200px;" class="btn btn-primary btn-lg" href="{%url 'add_level' %}">Add Class/ Level</a></h3><hr>
+          <h3><a style="margin-right:19.1vw;" href=""><strong>Students</strong></a> <a style="width:200px;" class="btn btn-primary btn-lg" href="{%url 'add_student' %}">Add Student</a></h3>
         </div>
       </div>
     </div>
-    <div class="col-md-2">  </div>
+    <div class="col-md-12">  </div>
+    
   </div>
 </div>
 {% endblock %}

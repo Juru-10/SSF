@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^add_marks/$',views.add_marks,name='add_marks'),
     url(r'^add_discipline/$',views.add_discipline,name='add_discipline'),
     url(r'^levels/$',views.levels,name='levels'),
+    url(r'^guides/$',views.guides,name='guides'),
     url(r'^student_login/$',views.student_login,name='student_login'),
     url(r'^guide_login/$',views.guide_login,name='guide_login'),
 ]

@@ -1,9 +1,8 @@
 h1{
   color:rgb(40,0,20);
 }
-.container{
-  /* background: #f0a4f0;
-  padding-left: 75px; */
+.container {
+  background-image: url("https://cdn.pixabay.com/photo/2017/03/14/16/42/footprint-2143685__340.jpg");
 }
 #box{
   /* box-sizing: border-box;

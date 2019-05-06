@@ -30,6 +30,12 @@ def levels(request):
     students=Student.objects.filter(level__name__icontains=Student.level)
     return render(request,'levels.html',{"levels":levels,"students":"students"})
 
+
+def guides(request):
+    guides=Guide.objects.all()
+    # schools=School.objects.filter(school__name__icontains=School.guide)
+    return render(request,'guides_list.html',{"guides":guides})
+
 @login_required(login_url='/accounts/login/')
 def add_student(request):
     # current_user = request.user
