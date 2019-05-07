@@ -40,7 +40,7 @@ OR
 
 ## link to it on Heroku
 
-https://awwards1010.herokuapp.com/
+https://ssf10.herokuapp.com/
 
 ## Known Bugs
 
