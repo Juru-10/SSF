@@ -19,23 +19,28 @@
           <div class="w3-container">
             {%for level in levels%}
             <div class="well" style= "margin:17px;float:left;font-family: 'Cormorant Upright', serif; width: 30%; color: rgb(153, 51, 51);">
-            <button onclick="document.getElementById('#{{student.level.id}}').style.display='block'" class="w3-button w3-black">{{level.name}}</button>
+            <button onclick="document.getElementById('#{{level.id}}').style.display='block'" class="w3-button w3-black">{{level.name}}</button>
             </div>
-            {%endfor%}
-            <div id="#{{student.level.id}}" class="w3-modal">
+
+            <div id="#{{level.id}}" class="w3-modal">
               <div class="w3-modal-content">
                 <div class="w3-container">
-                  <span onclick="document.getElementById('#{{student.level.id}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                  <span onclick="document.getElementById('#{{level.id}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+
                   {%for student in students%}
+
+                  {%if level.id == student.level.id %}
                   <p>{{student.fname}} {{student.lname}} </p>
                   <a class="btn btn-primary"href="/add_discipline/{{id_guide}}/{{student.id}}">add discipline</a>
                   <a class="btn btn-primary"href="/add_marks/{{id_guide}}/{{student.id}}">add marks</a>
+                  {%endif%}
                   {%endfor%}
                 </div>
               </div>
             </div>
+            {%endfor%}
           </div>
-          
+
         </div>
       </div>
     </div>

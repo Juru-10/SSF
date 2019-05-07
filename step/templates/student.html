@@ -2,10 +2,8 @@
 <div class="container" style= "font-family: 'Cormorant Upright', serif;">
   <div class="jumbotron text-center" style= "background-color:darkcyan; color:bisque; font-family: monospace;">
     <div class="well" style="color:black;">
-      {%for student in student%}
       <h1>{{student.fname}} {{student.lname}}</h1>
       <h2></h2>
-      {%endfor%}
     </div>
     <div class="row">
       {%if marks%}

@@ -9,28 +9,28 @@ class SchoolLoginForm(forms.ModelForm):
 class StudentLoginForm(forms.ModelForm):
     class Meta:
         model = Student
-        exclude = ['level','fname','lname']
+        exclude = ['level','school_key','fname','lname','user']
 
 class GuideLoginForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school','fname','lname']
+        exclude = ['school_key','fname','lname','user']
 
 class AddStudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        exclude = []
+        exclude = ['school_key','user']
 
 
 class AddGuideForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school','guide']
+        exclude = ['school_key','guide','user']
 
 class AddLevelForm(forms.ModelForm):
     class Meta:
         model = Level
-        exclude = ['school']
+        exclude = ['school_key','user']
 
 class MarksForm(forms.ModelForm):
     class Meta:

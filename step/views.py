@@ -31,11 +31,14 @@ def guides(request):
 
 # @login_required(login_url='/accounts/login/')
 def levels(request, id):
-    levels=Level.objects.all()
-    level=Level.objects.filter(id=id).first()
+    # levels=Level.objects.all()
+    # level=Level.objects.filter(id=id).first()
+    guide=Guide.objects.filter(id=id).first()
+    school = School.objects.filter(id=guide.school_key.id).first()
+    levels=Level.objects.filter(school_key=school.id).all()
     # students=Student.objects.filter(level__name__icontains=Student.level)
-    students=Student.objects.filter(level=level).all()
-    # print(id)
+    students=Student.objects.all()
+    print(students)
     # students=Student.objects.all()
     return render(request,'levels.html',{"levels":levels, "students":students, "id_guide":id})
 
@@ -53,13 +56,15 @@ def about(request):
 @login_required(login_url='/accounts/login/')
 def add_student(request):
     current_user = request.user
+    school = School.objects.filter(user=current_user.id).first()
     # user = User.objects.filter().first()
     if request.method == 'POST':
         form = AddStudentForm(request.POST,request.FILES)
         print(form.errors.as_text())
         if form.is_valid():
             student = form.save(commit=False)
-            student.school = current_user
+            student.school_key = school
+            student.user = current_user
             # profile=Profile.objects.update()
             student.save()
         return redirect('school')
@@ -70,6 +75,7 @@ def add_student(request):
 # @login_required(login_url='/accounts/login/')
 def add_guide(request):
     current_user = request.user
+    school = School.objects.filter(user=current_user.id).first()
     print(current_user)
     # user = User.objects.filter().first()
     if request.method == 'POST':
@@ -77,7 +83,8 @@ def add_guide(request):
         print(form.errors.as_text())
         if form.is_valid():
             guide = form.save(commit=False)
-            guide.school = current_user
+            guide.school_key = school
+            guide.user = current_user
             # profile=Profile.objects.update()
             guide.save()
         return redirect('school')
@@ -87,14 +94,16 @@ def add_guide(request):
 
 @login_required(login_url='/accounts/login/')
 def add_level(request):
-    # current_user = request.user
+    current_user = request.user
+    school = School.objects.filter(user=current_user.id).first()
     # user = User.objects.filter().first()
     if request.method == 'POST':
         form = AddLevelForm(request.POST,request.FILES)
         print(form.errors.as_text())
         if form.is_valid():
             level = form.save(commit=False)
-            # profile.user = current_user
+            level.school_key = school
+            level.user = current_user
             # profile=Profile.objects.update()
             level.save()
         return redirect('school')
@@ -149,25 +158,27 @@ def add_discipline(request, guide_id, student_id):
     return render(request,'registration/discipline.html',{"form": form,"id":id, "id_guide":guide_id, "id_student":student_id})
 
 
-def student(request):
-    form = StudentLoginForm(request.POST,request.FILES)
-    marks = Marks.objects.all()
-    print(marks)
-    disciplines = Discipline.objects.all()
-    student = Student.objects.all()
-    print(student)
-    if request.method == 'POST':
-        if form.is_valid():
-            # username = form.cleaned_data['username']
-            # password = form.cleaned_data['password']
-            student = Student.objects.filter(email = form.cleaned_data['email']).first()
-            if student is not None and student.ID==form.cleaned_data['ID']:
-                student = Student.objects.filter(student.ID).first()
-                print(marks)
-                return render(request,'student.html',{"form": form, "student":student, "marks":marks, "disciplines":disciplines})
-    else:
-        form = StudentLoginForm()
-    return render(request,'student.html',{"form": form, "marks":marks, "student":student, "disciplines":disciplines})
+def student(request,id):
+    # form = StudentLoginForm(request.POST,request.FILES)
+    marks = Marks.objects.filter(student=id).all()
+    # print(marks)
+    disciplines = Discipline.objects.filter(student=id).all()
+    student = Student.objects.filter(id=id).first()
+    # print(student)
+    # if request.method == 'POST':
+    #     if form.is_valid():
+    #         # username = form.cleaned_data['username']
+    #         # password = form.cleaned_data['password']
+    #         student = Student.objects.filter(email = form.cleaned_data['email']).first()
+    #         if student is not None and student.ID==form.cleaned_data['ID']:
+    #             student = Student.objects.filter(student.ID).first()
+    #             marks = Marks.objects.filter(student.ID).all()
+    #             disciplines = Discipline.objects.filter(student.ID).all()
+    #             print(marks)
+    #             return render(request,'student.html',{"form": form, "student":student, "marks":marks, "disciplines":disciplines})
+    # else:
+    #     form = StudentLoginForm()
+    return render(request,'student.html',{"student":student,"marks":marks, "disciplines":disciplines})
 
 @login_required(login_url='/accounts/login/')
 def school_login(request):
@@ -187,9 +198,9 @@ def student_login(request):
         if form.is_valid():
             # username = form.cleaned_data['username']
             # password = form.cleaned_data['password']
-            student = Student.objects.filter(email = form.cleaned_data['email']).first()
+            student = Student.objects.filter(ID = form.cleaned_data['ID']).first()
             if student is not None and student.ID==form.cleaned_data['ID']:
-                return redirect('student')
+                return redirect('student', id=student.id)
 
     else:
                 # print(guide.password)
