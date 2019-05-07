@@ -52,7 +52,7 @@ def about(request):
 
 @login_required(login_url='/accounts/login/')
 def add_student(request):
-    # current_user = request.user
+    current_user = request.user
     # user = User.objects.filter().first()
     if request.method == 'POST':
         form = AddStudentForm(request.POST,request.FILES)
