@@ -12,6 +12,7 @@ from .models import  School,Student,Guide,Level,User,Marks,Discipline
 from .serializer import StudentSerializer,GuideSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
+from .email import marks_message,discipline_message
 
 @login_required(login_url='/accounts/login/')
 def admin(request):
@@ -114,7 +115,11 @@ def add_marks(request, guide_id, student_id):
             marks.guide = guide
             marks.student = student
             # profile=Profile.objects.update()
+            recipient = student
+            name = recipient.fname+' '+recipient.lname
+            email = recipient.email
             marks.save()
+            marks_message(name,email)
             return redirect('levels', id=guide_id)
     else:
         form = MarksForm()
@@ -133,7 +138,11 @@ def add_discipline(request, guide_id, student_id):
             discipline.guide = guide
             discipline.student = student
             # profile=Profile.objects.update()
+            recipient = student
+            name = recipient.fname+' '+recipient.lname
+            email = recipient.email
             discipline.save()
+            discipline_message(name,email)
             return redirect('levels', id=guide_id)
     else:
         form = DisciplineForm()
@@ -213,6 +222,18 @@ def guides(request):
     guides=Guide.objects.all()
     # schools=School.objects.filter(school__name__icontains=School.guide)
     return render(request,'guides.html',{"guides":guides})
+
+# def ssf(request):
+#     name = request.POST.get('your_name')
+#     email = request.POST.get('email')
+#
+#     recipient = NewsLetterRecipients(name=name, email=email)
+#     recipient.save()
+#     send_welcome_email(name, email)
+#     data = {'success': 'You have been successfully added to mailing list'}
+#     return JsonResponse(data)
+
+
 
 
 

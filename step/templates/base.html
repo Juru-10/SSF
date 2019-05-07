@@ -23,9 +23,11 @@
 <body>
   {% include "navbar.html" %}
   {% block content %}
+  {{block.super}}
   <h1 class='text-center'></h1>
   {%endblock%}
-  {% block scripts %}
+  {% block scripts %}{{block.super}}
+  <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
   {% bootstrap_javascript %}
 
 
