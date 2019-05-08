@@ -14,6 +14,17 @@ from rest_framework import status
 from .permissions import IsAdminOrReadOnly
 from .email import marks_message,discipline_message
 
+import requests
+
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+from decouple import config,Csv
+
+from django.core.mail import send_mail
+
+
+
 @login_required(login_url='/accounts/login/')
 def admin(request):
     return render(request)
@@ -38,7 +49,7 @@ def levels(request, id):
     levels=Level.objects.filter(school_key=school.id).all()
     # students=Student.objects.filter(level__name__icontains=Student.level)
     students=Student.objects.all()
-    print(students)
+    # print(students)
     # students=Student.objects.all()
     return render(request,'levels.html',{"levels":levels, "students":students, "id_guide":id})
 
@@ -127,6 +138,7 @@ def add_marks(request, guide_id, student_id):
             recipient = student
             name = recipient.fname+' '+recipient.lname
             email = recipient.email
+
             marks.save()
             marks_message(name,email)
             return redirect('levels', id=guide_id)
