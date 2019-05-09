@@ -201,24 +201,23 @@ def school_login(request):
             if school is not None and school.password==form.cleaned_data['password']:
                 return redirect('school')
             # else:
-                # raise form.Error('Password or Username is incorrect!')
+            #     raise form.Error('Password or Username is incorrect!')
     return render(request, 'registration/school_login.html',{"form":form})
 
 def student_login(request):
     form = StudentLoginForm(request.POST,request.FILES)
     if request.method == 'POST':
         if form.is_valid():
-            # username = form.cleaned_data['username']
-            # password = form.cleaned_data['password']
-            student = Student.objects.filter(ID = form.cleaned_data['ID']).first()
-            if student is not None and student.ID==form.cleaned_data['ID']:
+            email = form.cleaned_data['email']
+            ID = form.cleaned_data['ID']
+            student = Student.objects.filter(email = email, ID = ID).first()
+            if email==student and ID==student:
                 return redirect('student', id=student.id)
-
+            else:
+                message = "Invalid username or password"
+                return render(request,'registration/parent_login.html', {'form':form, "message":message})
     else:
-                # print(guide.password)
-        message = 'Invalid username or password'
         form = StudentLoginForm()
-    # title = 'Login as Student'
     return render(request,'registration/parent_login.html',{'form':form})
 
 
@@ -229,16 +228,16 @@ def guide_login(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            guide = Guide.objects.filter(username = username).first()
-            if guide.username==username and guide.password==password:
-                # return levels(request, guide.id)
-                return redirect('levels', id=guide.id)
+            guide = Guide.objects.filter(username = username, password = password).first()
 
+            if username==guide and password==guide:
+                return redirect('levels', id=guide.id)
+            else:
+                message = "Invalid username or password"
+                return render(request,'registration/guide_login.html', {'form':form, "message":message})
     else:
-        # print(guide.password)
-        message = f'Invalid use title = title,rname or password'
         form = GuideLoginForm()
-    # title = 'Login as Guide'
+        message = "Invalid username or password"
     return render(request,'registration/guide_login.html',{'form':form})
 
 def guides(request):
