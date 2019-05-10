@@ -35,6 +35,7 @@ class AddLevelForm(forms.ModelForm):
 class MarksForm(forms.ModelForm):
     class Meta:
         model = Marks
+        Marks.comment = forms.CharField(max_length=100, widget=forms.Textarea(attrs={'rows': 3, 'cols': 40}))
         exclude = ['student','pub_date','guide']
 
 class DisciplineForm(forms.ModelForm):
