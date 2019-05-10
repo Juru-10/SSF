@@ -210,8 +210,8 @@ def student_login(request):
         if form.is_valid():
             email = form.cleaned_data['email']
             ID = form.cleaned_data['ID']
-            student = Student.objects.filter(email = email, ID = ID).first()
-            if email==student and ID==student:
+            student = Student.objects.filter(ID = ID, email = email).first()
+            if student:
                 return redirect('student', id=student.id)
             else:
                 message = "Invalid username or password"
@@ -228,9 +228,9 @@ def guide_login(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            guide = Guide.objects.filter(username = username, password = password).first()
+            guide = Guide.objects.filter(password = password, username = username).first()
 
-            if username==guide and password==guide:
+            if guide:
                 return redirect('levels', id=guide.id)
             else:
                 message = "Invalid username or password"
