@@ -139,7 +139,7 @@ def add_marks(request, guide_id, student_id):
             name = recipient.fname+' '+recipient.lname
             email = recipient.email
 
-            # marks.save()
+            marks.save()
             marks_message(name,email)
             return redirect('levels', id=guide_id)
     else:

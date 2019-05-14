@@ -5,36 +5,38 @@
 
 <style>
   body{
-    background:rgba(150,50,20,0.2);
+    background:rgba(150,100,0,0.3);
   }
     .container {
         background-image: url("/media/projectpic/school3.jpg");
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 100% 100%;
     }
 </style>
 <body>
-  <div class="container"style="padding:120px;">
+  <div class="container">
         <br>
         <br>
         <br>
     <div class="row">
       <!-- Empty div -->
-      <div class="col-md-3"></div>
+      <div class="col-md-4"></div>
       <!-- <div class="col-md-1"></div> -->
-      <div class="col-md-6">
+      <div class="col-md-4">
       <br>
       <br>
         {% if message %}
           <p>{{message}}</p>
         {% endif %}
-        <div class="panel panel-default" style="margin-top:100px;">
+        <div class="panel panel-default" style="margin-top:450px;background:rgb(0,0,0);">
 
-          <div class="panel-heading">
-            <div class="card" style="width:100%;" >
-              <h1 id="login" class="text-center">SSF</h1>
+          <div class="panel-heading" style="">
+            <h1 id="login" class="text-center">SSF</h1>
+            </div>
+            <div class="card" style="width:100%;height:100%" >
+
               <ul class="list-group list-group-flush" style="width:90%; padding-left:30px;">
-              <form  action="{%url 'student_login'%}" method="post">
+              <form  action="{%url 'student_login'%}" method="post" style="color:white;">
                 {% csrf_token %}
                 {% bootstrap_form form%}
 
@@ -45,11 +47,11 @@
                 <input type="hidden" name="next" value="{{next}}">
               </form>
             </div>
-          </div>
+
         </div>
       </div>
       <!-- empty div -->
-      <div class="col-md-3"></div>
+      <div class="col-md-4"></div>
     </div>
   </div>
 
