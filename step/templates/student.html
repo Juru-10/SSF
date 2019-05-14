@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container" style= "font-family: 'Cormorant Upright', serif;">
+  <div class="jumbotron text-center" style= "background-color:darkcyan; color:bisque; font-family: monospace;">
+    <div class="well" style="color:black;">
+      <h1>{{student.fname}} {{student.lname}}</h1>
+      <h2></h2>
+    </div>
+    <div class="row">
+      {%if marks%}
+      <h3>About Marks</h3>
+      {%endif%}
+      {%for mark in marks%}
+      <div class="">
+        <div class="well" style= "margin:17px;float:left;font-family: 'Cormorant Upright', serif; width: 30%; color: darkcyan;">
+          <p>{{mark.subject}}</p>
+          <p>{{mark.points}}</p>
+          <p>Comment : {{mark.comment}}</p>
+          <p>{{mark.pub_date}}</p>
+          <p>Teacher : {{mark.guide}}</p>
+        </div>
+      </div>
+      {%endfor%}
+      </div>
+      <div class="row">
+      {%if disciplines%}
+      <h3>About Behaviour</h3>
+      {%endif%}
+      {%for discipline in disciplines%}
+      <div class="">
+        <div class="well" style= "margin:17px;float:left;font-family: 'Cormorant Upright', serif; width: 30%; color:darkcyan;">
+          <p>Case : {{discipline.case}}</p>
+          <p>Comment : {{discipline.comment}}</p>
+          <p>{{discipline.pub_date}}</p>
+          <p>Petron : {{discipline.guide}}</p>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</div>
+{% endblock %}

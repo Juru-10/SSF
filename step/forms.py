@@ -1,32 +1,36 @@
 from django import forms
-from .models import Student, Guide, Level, Marks, Discipline, User
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import School, Student, Guide, Level, Marks, Discipline
+
+class SchoolLoginForm(forms.ModelForm):
+    class Meta:
+        model = School
+        exclude = ['name','location']
 
 class StudentLoginForm(forms.ModelForm):
     class Meta:
         model = Student
-        exclude = ['level']
+        exclude = ['level','school_key','fname','lname','user']
 
 class GuideLoginForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school']
+        exclude = ['school_key','fname','lname','user']
 
 class AddStudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        exclude = []
+        exclude = ['school_key','user']
 
 
 class AddGuideForm(forms.ModelForm):
     class Meta:
         model = Guide
-        exclude = ['school']
+        exclude = ['school_key','guide','user']
 
 class AddLevelForm(forms.ModelForm):
     class Meta:
         model = Level
-        exclude = ['school']
+        exclude = ['school_key','user']
 
 class MarksForm(forms.ModelForm):
     class Meta:
@@ -37,15 +41,3 @@ class DisciplineForm(forms.ModelForm):
     class Meta:
         model = Discipline
         exclude = ['student','pub_date','guide']
-
-class UserCreationForm(UserCreationForm):
-
-    class Meta(UserCreationForm):
-        model = User
-        fields = ('username', 'email')
-
-class UserChangeForm(UserChangeForm):
-
-    class Meta:
-        model = User
-        fields = ('username', 'email')

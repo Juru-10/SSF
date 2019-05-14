@@ -12,5 +12,8 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "student.settings")
+# 
+# os.environ['http_proxy'] = "http://myproxy:587"
+# os.environ['https_proxy'] = "http://myproxy:587"
 
 application = get_wsgi_application()

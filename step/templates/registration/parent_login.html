@@ -2,7 +2,13 @@
 {% load bootstrap3 %}
 {% block content %}
 {% load static%}
-
+<style>
+    body {
+        background-image: url("/home/wecode/Desktop/SSF/media/projectpic/school10.png");
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+</style>
 <div class="container">
       <br>
       <br>
@@ -17,8 +23,8 @@
     <div class="col-md-4">
     <br>
     <br>
-      {% if form.errors %}
-        <p> Password or Username is incorrect </p>
+      {% if message %}
+        <p>{{message}}</p>
       {% endif %}
       <div class="panel panel-default">
 
@@ -26,7 +32,7 @@
           <div class="card" style="width:100%;" >
             <h1 id="login" class="text-center">SSF</h1>
             <ul class="list-group list-group-flush" style="width:90%; padding-left:30px;">
-            <form  action="/accounts/login/" method="post">
+            <form  action="{%url 'student_login'%}" method="post">
               {% csrf_token %}
               {% bootstrap_form form%}
 
