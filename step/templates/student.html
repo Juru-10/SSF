@@ -11,7 +11,7 @@
       {%endif%}
       {%for mark in marks%}
       <div class="">
-        <div class="well" style= "margin:17px;float:left;font-family: 'Cormorant Upright', serif; width: 30%; color: darkcyan;">
+        <div style= "padding:20px;border:solid 5px white;background-color:white;border-radius:5%;margin:35px;padding:10px;float:left;font-family: 'Cormorant Upright', serif; width: 280px; color: darkcyan;">
           <p>{{mark.subject}}</p>
           <p>{{mark.points}}</p>
           <p>Comment : {{mark.comment}}</p>
@@ -27,7 +27,7 @@
       {%endif%}
       {%for discipline in disciplines%}
       <div class="">
-        <div class="well" style= "margin:17px;float:left;font-family: 'Cormorant Upright', serif; width: 30%; color:darkcyan;">
+        <div style= "padding:20px;border:solid 5px white;background-color:white;border-radius:5%;margin:20px;padding:10px;float:left;font-family: 'Cormorant Upright', serif; width: 280px; color: darkcyan;">
           <p>Case : {{discipline.case}}</p>
           <p>Comment : {{discipline.comment}}</p>
           <p>{{discipline.pub_date}}</p>

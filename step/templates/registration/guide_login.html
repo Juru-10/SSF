@@ -2,53 +2,58 @@
 {% load bootstrap3 %}
 {% block content %}
 {% load static%}
+
 <style>
-    body {
-        background-image: url("/home/wecode/Desktop/SSF/media/projectpic/schoolsa.jpg");
-        background-repeat: no-repeat;
-        background-size: cover; 
+  body{
+    background:lightyellow;
+  }
+    .container{
+        background-image:url("/media/projectpic/school5.jpg");
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
     }
 </style>
-<div class="container">
+<body>
+  <div class="container">
+        <br>
+        <br>
+        <br>
+    <div class="row">
+      <!-- Empty div -->
+      <div class="col-md-4"></div>
+      <!-- <div class="col-md-1"></div> -->
+      <div class="col-md-4">
       <br>
       <br>
-      <br>
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-1">
+        {% if message %}
+          <p>{{message}}</p>
+        {% endif %}
+        <div class="panel panel-default" style="margin-top:235px;margin-bottom:235px;background:rgba(0,0,0,0.6);">
 
-    </div>
-    <div class="col-md-4">
-    <br>
-    <br>
-      {% if message %}
-        <p>{{message}}</p>
-      {% endif %}
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <div class="card" style="width:100%;" >
+          <div class="panel-heading" style="background:rgba(210,210,210,0.6);">
             <h1 id="login" class="text-center">SSF</h1>
-            <ul class="list-group list-group-flush" style="width:90%; padding-left:30px;">
-            <form  action="/guide_login/" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form%}
+            </div>
+            <div class="card" style="width:100%;" >
 
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Login" style="width:100%; padding-left:30px;">
+              <ul class="list-group list-group-flush" style="width:90%; padding-left:30px;">
+              <form  action="/guide_login/" method="post" style="color:white;">
+              {% csrf_token %}
+              {% bootstrap_form form%}
+
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-sm" value="Login" style="width:100%; padding-left:30px;">
+              </div>
+
+              <input type="hidden" name="next" value="{{next}}">
+              </form>
             </div>
 
-            <input type="hidden" name="next" value="{{next}}">
-            </form>
-          </div>
         </div>
       </div>
+      <!-- empty div -->
+      <div class="col-md-4"></div>
     </div>
-    <!-- empty div -->
-    <div class="col-md-4"></div>
   </div>
-</div>
 
+</body>
 {% endblock %}

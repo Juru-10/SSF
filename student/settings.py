@@ -54,6 +54,13 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_PORT = 465
+# EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+# EMAIL_USE_SSL = True
+# EMAIL_HOST = 'smtp.zoho.com'
+# EMAIL_HOST_USER = 'juruassumpta@zoho.com'
+# EMAIL_HOST_PASSWORD = '12345678ok!'
+# DEFAULT_FROM_EMAIL = "juruassumpta@zoho.com"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
