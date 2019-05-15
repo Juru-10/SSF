@@ -1,0 +1,78 @@
+{%block footer%}
+
+<style>
+  footer{
+    background: linear-gradient(to bottom,black 50%,gray 100%);
+    border: 2px solid gray;
+    /* margin-top: 760px; */
+  }
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+
+}
+
+.container {
+    padding: 9px 16px;
+
+}
+
+img{
+  width: 100%;
+  height: 100%;
+
+}
+#contact{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#contact>div{
+  display: inline-block;
+  text-align: center;
+}
+#contact p,.rights p{
+  padding: 0;
+  margin: 0;
+  display: block;
+  color: azure;
+}
+.rights{
+  margin-left: 25%;
+  width: 50%;
+  color:azure;
+}
+.item{
+  height: 40vw;
+}
+
+</style>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+          <a href="/accounts/login/" style="color:azure;font-size: 20px;">School Admin</a>
+      </div>
+
+    <div id="contact" class="col-md-8">
+      <div>
+        <h1  style="color:azure">Contact & Address</h1>
+        <p>Tel:+250787104701</p>
+        <p>Email:ssf@gmail.com</p>
+        <p>Rwanda,Kigali city</p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <a href="{%url 'admin'%}" style="color:azure;font-size: 20px;">App Admin</a>
+    </div>
+    </div><hr>
+    <div class="rights text-center">
+        <p>Software Engineer</p>
+        <p>Copyright &copy; 2019 SSF All Rights Reserved.</p>
+      </div>
+  </div>
+</footer>
+
+{%endblock%}

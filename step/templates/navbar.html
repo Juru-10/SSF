@@ -4,34 +4,37 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style media="screen">
+  a:hover{background-color:mediumturquoise;}
+</style>
 </head>
 <body>
-  <nav class="navbar navbar-inverse" style="background-color:black;padding-bottom:1%;">
+  <nav class="navbar navbar-inverse" style="background-color:rgba(0,0,0,0.5);">
     <div class="container-fluid">
       <div class="navbar-header">
-
+        <img src="/media/projectpic/logo.gif" style="width:80px; height:80px;">
       </div>
       <div class="">
-        <div class="col-md-2">
-          <a class="navbar-brand" rel="home" href="#" title="SSF">
-            <img src="/media/projectpic/logo1.png" style="width:100px; height:100px; padding-bottom:50px;margin-bottom:15px;">
-          </a>
-        </div>
+        <!-- <div class="col-md-2">
+          <a class="navbar-brand" rel="home" href="#" title="SSF"> -->
+            <!-- <img src="/media/projectpic/logo.gif" style="width:100px; height:100px; padding:20px;margin-bottom:15px;"> -->
+          <!-- </a>
+        </div> -->
         <div class="col-md-5"></div>
           <!-- <div class="col-ml-2"> -->
-            <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+            <a class="navbar-brand" href="{% url 'index' %}" style="color:white;">Home</a>
           <!-- </div> -->
         <div class="col-md-1"></div>
           <!-- <div class="col-md-2"> -->
-            <a class="navbar-brand" href="{% url 'about' %}">About</a>
+            <a class="navbar-brand" href="{% url 'about' %}" style="color:white;">About</a>
           <!-- </div> -->
         <div class="col-md-1"></div>
         <!-- <li> -->
-          <a class="navbar-brand" href="{%url 'guide_login' %}">Guide</a>
+          <a class="navbar-brand" href="{%url 'guide_login' %}" style="color:white;">Guide</a>
         <!-- </li> -->
         <div class="col-md-1"></div>
         <!-- <li> -->
-          <a class="navbar-brand" href="{%url 'student_login'%}">Parent</a>
+          <a class="navbar-brand" href="{%url 'student_login'%}" style="color:white;">Parent</a>
         <!-- </li> -->
           <div>
           <ul class="">
