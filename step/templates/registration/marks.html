@@ -2,44 +2,47 @@
 {% load bootstrap3 %}
 {% block content %}
 <style>
-  body{
-    background:rgba(150,250,250,0.9);
+  .cont{
+    background:rgba(150,250,250,0.4);
+    margin-top:-20px;
   }
-    .container{
+    body{
         background-image:url("/media/projectpic/school5.jpg");
         background-repeat:no-repeat;
-        background-size: 100% 100%;
+        background-size: 100% 32%;
     }
 </style>
-<div class="container">
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      {% if form.errors %}
-        <p> Password or Username is incorrect </p>
-      {% endif %}
-      <div class="panel panel-default" style="margin-bottom:400px;">
+<div class="cont">
+  <div class="container">
+    <div class="row">
+      <!-- Empty div -->
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        {% if form.errors %}
+          <p> Password or Username is incorrect </p>
+        {% endif %}
+        <div class="panel panel-default" style="margin-bottom:100px;margin-top:230px;">
 
-        <div class="panel-heading">
-          <h3 class="text-center">Add Student's Current Marks</h3>
-        </div>
-        <div class="panel-body" style="background:rgba(150,100,0,0.5);">
-          <form  action="/add_marks/{{id_guide}}/{{id_student}}/" method="POST"  enctype="multipart/form-data" >
-            {% csrf_token %}
-            {% bootstrap_form form%}
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-lg" value="Save">
-            </div>
-            <input type="hidden" name="next" value="{{next}}">
-          </form>
+          <div class="panel-heading">
+            <h3 class="text-center">Add Student's Marks</h3>
+          </div>
+          <div class="panel-body" style="background:rgba(50,50,50,0.9);color:white;">
+            <form  action="/add_marks/{{id_guide}}/{{id_student}}/" method="POST"  enctype="multipart/form-data" >
+              {% csrf_token %}
+              {% bootstrap_form form%}
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-lg" value="Save" style="background:mediumturquoise;">
+              </div>
+              <input type="hidden" name="next" value="{{next}}">
+            </form>
+          </div>
+
         </div>
 
       </div>
-
+      <!-- empty div -->
+      <div class="col-md-3"></div>
     </div>
-    <!-- empty div -->
-    <div class="col-md-3"></div>
   </div>
 </div>
 

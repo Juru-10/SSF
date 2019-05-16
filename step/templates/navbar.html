@@ -4,15 +4,17 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<style media="screen">
-  a:hover{background-color:mediumturquoise;}
-</style>
+  <style media="screen">
+    .navbar-brand>h3{color:white;}
+    .navbar-brand:hover>h3,.navbar-brand:active>h3{background-color:mediumturquoise;border:solid 1px black;background-size:80px 80px;}
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-inverse" style="background-color:rgba(0,0,0,0.5);">
+  <nav class="navbar navbar-inverse" style="background-color:rgba(0,0,0,0.5);padding:10px;">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <img src="/media/projectpic/logo.gif" style="width:80px; height:80px;">
+      <div class="navbar-header" style="font-size:28px;font-style:italic;font-weight: bold;color:rgb(28,253,245);">
+        <img src="/media/projectpic/logo.gif" style="width:90px; height:90px;">
+        Student Step Follower
       </div>
       <div class="">
         <!-- <div class="col-md-2">
@@ -20,24 +22,15 @@
             <!-- <img src="/media/projectpic/logo.gif" style="width:100px; height:100px; padding:20px;margin-bottom:15px;"> -->
           <!-- </a>
         </div> -->
-        <div class="col-md-5"></div>
-          <!-- <div class="col-ml-2"> -->
-            <a class="navbar-brand" href="{% url 'index' %}" style="color:white;">Home</a>
-          <!-- </div> -->
+        <div class="col-md-3"></div>
+        <a class="navbar-brand" href="{% url 'index' %}"><h3>Home</h3></a>
         <div class="col-md-1"></div>
-          <!-- <div class="col-md-2"> -->
-            <a class="navbar-brand" href="{% url 'about' %}" style="color:white;">About</a>
-          <!-- </div> -->
+        <a class="navbar-brand" href="{% url 'about' %}"><h3>About</h3></a>
         <div class="col-md-1"></div>
-        <!-- <li> -->
-          <a class="navbar-brand" href="{%url 'guide_login' %}" style="color:white;">Guide</a>
-        <!-- </li> -->
+        <a class="navbar-brand" href="{%url 'guide_login' %}"><h3>Guide</h3></a>
         <div class="col-md-1"></div>
-        <!-- <li> -->
-          <a class="navbar-brand" href="{%url 'student_login'%}" style="color:white;">Parent</a>
-        <!-- </li> -->
-          <div>
-          <ul class="">
+        <a class="navbar-brand" href="{%url 'student_login'%}"><h3>Parent</h3></a>
+        <ul class="">
 
 
             <!-- <li class="dropdown">
