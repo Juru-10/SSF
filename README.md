@@ -1,6 +1,7 @@
 # Student Step Follower App
+## Description
 
-#### This is a communication App that will help parents to get regular updates of their children’s education. The schools will use less time giving regular reports on the students while excluding the use of papers to print this information, the parents will have the updates on their children at the tap of a button which is more convenient.
+This is a communication App that will help parents to get regular updates of their children’s education. The schools will use less time giving regular reports on the students while excluding the use of papers to print this information, the parents will have the updates on their children at the tap of a button which is more convenient.
 
 
 #### By
