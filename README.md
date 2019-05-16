@@ -1,8 +1,4 @@
 # Student Step Follower App
-## Description
-
-This is a communication App that will help parents to get regular updates of their children’s education. The schools will use less time giving regular reports on the students while excluding the use of papers to print this information, the parents will have the updates on their children at the tap of a button which is more convenient.
-
 
 #### By
 ** Assumpta Uwanyirijuru **
@@ -11,8 +7,7 @@ This is a communication App that will help parents to get regular updates of the
 ** Naima NIYIGENA **
 
 ## Description
-This awwwards_like App will help:
-*the Users* to sign in to the app, to View posted projects and their details, to Post aproject to be rated/reviewed, to Rate/review other users' projects, to Search for the projects, to View projects overall score, and to View the own profile page.
+This is a communication App that will help parents to get regular updates of their children’s education. The schools will use less time giving regular reports on the students while excluding the use of papers to print this information, the parents will have the updates on their children at the tap of a button which is more convenient.
 
 ## Setup/Installation Requirements
 
