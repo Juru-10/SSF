@@ -1,41 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container" style= "font-family: 'Cormorant Upright', serif;">
-  <div class="jumbotron text-center" style= "background-color:darkcyan; color:bisque; font-family: monospace;">
-    <div class="well" style="color:black;">
-      <h1>{{student.fname}} {{student.lname}}</h1>
-      <h2></h2>
-    </div>
-    <div class="row">
-      {%if marks%}
-      <h3>About Marks</h3>
-      {%endif%}
-      {%for mark in marks%}
-      <div class="">
-        <div style= "padding:20px;border:solid 5px white;background-color:white;border-radius:5%;margin:35px;padding:10px;float:left;font-family: 'Cormorant Upright', serif; width: 280px; color: darkcyan;">
-          <p>{{mark.subject}}</p>
-          <p>{{mark.points}}</p>
-          <p>Comment : {{mark.comment}}</p>
-          <p>{{mark.pub_date}}</p>
-          <p>Teacher : {{mark.guide}}</p>
-        </div>
-      </div>
-      {%endfor%}
-      </div>
+<style>
+  body{
+   background-image: url("/media/projectpic/school5.jpg");
+   background-repeat: no-repeat;
+   background-size: 100% 350px;
+  }
+  .cont{
+    background:rgba(150,250,250,0.3);
+    margin-top:-20px;
+  }
+</style>
+<div class="cont">
+  <h1 class="text-center" style="font-size:60px;font-family: monospace;padding-top:50px;">{{student.fname}} {{student.lname}}</h1>
+  <div class="container" style= "font-family: 'Cormorant Upright', serif;margin-top:150px;">
+    <div class="text-center" style= "color:black; font-family: monospace;font-size:20px;">
+      <!-- <div class="well" style="color:black;">
+
+        <h2></h2>
+      </div> -->
       <div class="row">
-      {%if disciplines%}
-      <h3>About Behaviour</h3>
-      {%endif%}
-      {%for discipline in disciplines%}
-      <div class="">
-        <div style= "padding:20px;border:solid 5px white;background-color:white;border-radius:5%;margin:20px;padding:10px;float:left;font-family: 'Cormorant Upright', serif; width: 280px; color: darkcyan;">
-          <p>Case : {{discipline.case}}</p>
-          <p>Comment : {{discipline.comment}}</p>
-          <p>{{discipline.pub_date}}</p>
-          <p>Petron : {{discipline.guide}}</p>
+        {%if marks%}
+        <h3 style="font-size:40px;font-family: monospace;padding-top:30px;">About Marks</h3>
+        {%endif%}
+        {%for mark in marks%}
+        <div class="col-md-4">
+          <div style= "padding:20px;border:solid 5px white;background-color:white;border-radius:5%;margin-bottom:35px;padding:10px;float:left;font-family: 'Cormorant Upright', serif; width: 280px; color: darkcyan;">
+            <p>{{mark.subject}}</p>
+            <p>{{mark.points}}</p>
+            <p>Comment : {{mark.comment}}</p>
+            <p>{{mark.pub_date}}</p>
+            <p>Teacher : {{mark.guide}}</p>
+          </div>
         </div>
+        {%endfor%}
+        </div>
+        <div class="row">
+        {%if disciplines%}
+        <h3>About Behaviour</h3>
+        {%endif%}
+        {%for discipline in disciplines%}
+        <div class="">
+          <div style= "padding:20px;border:solid 5px white;background-color:white;border-radius:5%;margin:20px;padding:10px;float:left;font-family: 'Cormorant Upright', serif; width: 280px; color: darkcyan;">
+            <p>Case : {{discipline.case}}</p>
+            <p>Comment : {{discipline.comment}}</p>
+            <p>{{discipline.pub_date}}</p>
+            <p>Petron : {{discipline.guide}}</p>
+          </div>
+        </div>
+        {%endfor%}
       </div>
-      {%endfor%}
     </div>
   </div>
 </div>

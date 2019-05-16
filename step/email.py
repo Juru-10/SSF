@@ -11,7 +11,7 @@ def marks_message(name,receiver):
         "https://api.mailgun.net/v3/sandbox3b2294b871f94f64a36ffc2fbfaeda8a.mailgun.org/messages",
         auth=("api", "12b331c378fdbdbb5e141eb368ae2200-e566273b-fd988a9e"),
         data={"from": "SSF <postmaster@sandbox3b2294b871f94f64a36ffc2fbfaeda8a.mailgun.org>",
-              "to": "<jurassu10@gmail.com>",
+              "to": receiver,
               "subject": "Hello Assumpta Uwanyirijuru",
               "text": "New Marks for "+name}))
 
